@@ -1,4 +1,4 @@
-#  EntropyLens
+#  secureLens
 
 > **See the invisible.** A Chrome extension that turns your password field into a real-time heatmap of predictability — powered by 14 million leaked passwords.
 
@@ -6,11 +6,11 @@
 
 ##  What Is This?
 
-EntropyLens doesn't just tell you "weak" or "strong." It shows you **exactly which characters** in your password an attacker would guess first, character by character, in real-time.
+secureLens doesn't just tell you "weak" or "strong." It shows you **exactly which characters** in your password an attacker would guess first, character by character, in real-time.
 
 Type `password123` and watch it light up **red** — every single tile. Type a random passphrase and watch it glow **green**. The difference isn't magic. It's math.
 
-![EntropyLens demo — heatmap overlay on a password field](image.png)
+![secureLens demo — heatmap overlay on a password field](image.png)
 
 ---
 
@@ -18,7 +18,7 @@ Type `password123` and watch it light up **red** — every single tile. Type a r
 
 ### The Core Idea: Trigram Analysis
 
-Every password is a sequence of characters. Humans are terrible at being random. We use patterns — `123`, `abc`, `qwe`, `pas` — over and over. EntropyLens learned these patterns by reading **14,344,391 real leaked passwords**.
+Every password is a sequence of characters. Humans are terrible at being random. We use patterns — `123`, `abc`, `qwe`, `pas` — over and over. secureLens learned these patterns by reading **14,344,391 real leaked passwords**.
 
 For every character you type, it asks: *"Given the two characters before this one, how likely is a human to type this next character?"*
 
@@ -175,7 +175,7 @@ Prunes low-probability pairs (< 0.1%) and gzip-compresses. The extension loads t
 ##  Project Structure
 
 ```
-entropylens/
+secureLens/
 ├── data/
 │   ├── rockyou.txt              ← Raw corpus (gitignored, ~140 MB)
 │   └── trigrams.json            ← Compiled model (gitignored, ~2.8 MB)
@@ -258,7 +258,7 @@ All 27 tests pass.
 
 ##  Privacy & Security
 
-EntropyLens is designed with a **zero-knowledge** philosophy:
+secureLens is designed with a **zero-knowledge** philosophy:
 
 - **No password characters are ever logged, stored, or transmitted.** The overlay displays `•` only.
 - **All computation happens locally.** The model is bundled in the extension. No network requests.
@@ -298,7 +298,7 @@ Without smoothing, an unseen transition would have probability 0, making entropy
 
 ### Why Shannon entropy and not zxcvbn?
 
-[zxcvbn](https://github.com/dropbox/zxcvbn) is excellent but uses dictionary matching, pattern detection, and heuristics. EntropyLens uses a **pure statistical model** trained on real data. It doesn't know what "password" means — it just knows that after `pa`, the letter `s` appears 38% of the time in real leaked passwords. This makes it more generalizable and less gameable.
+[zxcvbn](https://github.com/dropbox/zxcvbn) is excellent but uses dictionary matching, pattern detection, and heuristics. secureLens uses a **pure statistical model** trained on real data. It doesn't know what "password" means — it just knows that after `pa`, the letter `s` appears 38% of the time in real leaked passwords. This makes it more generalizable and less gameable.
 
 ---
 
