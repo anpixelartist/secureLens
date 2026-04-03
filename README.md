@@ -1,10 +1,10 @@
-# 🔐 EntropyLens
+#  EntropyLens
 
 > **See the invisible.** A Chrome extension that turns your password field into a real-time heatmap of predictability — powered by 14 million leaked passwords.
 
 ---
 
-## 🧠 What Is This?
+##  What Is This?
 
 EntropyLens doesn't just tell you "weak" or "strong." It shows you **exactly which characters** in your password an attacker would guess first, character by character, in real-time.
 
@@ -14,7 +14,7 @@ Type `password123` and watch it light up **red** — every single tile. Type a r
 
 ---
 
-## 🎯 How It Works
+##  How It Works
 
 ### The Core Idea: Trigram Analysis
 
@@ -69,12 +69,12 @@ crack_time = 2^entropy_bits / guesses_per_second
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                  Chrome Extension                │
-│                                                  │
+│                  Chrome Extension               │
+│                                                 │
 │  ┌──────────────────┐    ┌────────────────────┐ │
 │  │  content.js      │◄──►│  background.js     │ │
 │  │                  │    │  (model loader)    │ │
@@ -85,7 +85,7 @@ crack_time = 2^entropy_bits / guesses_per_second
 │  │    heatmap tiles │    │  Responds to       │ │
 │  │  • Shows panel   │    │  analyze requests  │ │
 │  └──────────────────┘    └────────────────────┘ │
-│                                                  │
+│                                                 │
 │  ┌──────────────────┐    ┌────────────────────┐ │
 │  │  Heatmap Overlay │    │  Stats Panel       │ │
 │  │                  │    │                    │ │
@@ -107,12 +107,12 @@ crack_time = 2^entropy_bits / guesses_per_second
 │  (14.3M pw)    (count trigrams,  │  (2.8 MB)    │
 │                 Laplace smooth)  │              │
 │                                  ▼              │
-│                          compress_trie.py        │
-│                          (prune + gzip)          │
-│                                  │               │
-│                                  ▼               │
-│                        trigrams.json.gz          │
-│                        (0.74 MB)                 │
+│                          compress_trie.py       │
+│                          (prune + gzip)         │
+│                                  │              │
+│                                  ▼              │
+│                        trigrams.json.gz         │
+│                        (0.74 MB)                │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -132,7 +132,7 @@ The **shield badge** on the right side of the password field glows with the over
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -172,7 +172,7 @@ Prunes low-probability pairs (< 0.1%) and gzip-compresses. The extension loads t
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 entropylens/
@@ -245,18 +245,18 @@ The **rockyou.txt** corpus — 14,344,391 passwords leaked from the 2009 RockYou
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 ```bash
 node tests/test_engine.js    # 14 tests — probability lookups, Laplace floor, classification
 node tests/test_entropy.js   # 13 tests — entropy calculation, labels, colors, edge cases
 ```
 
-All 27 tests pass. ✅
+All 27 tests pass. 
 
 ---
 
-## 🔒 Privacy & Security
+##  Privacy & Security
 
 EntropyLens is designed with a **zero-knowledge** philosophy:
 
@@ -268,7 +268,7 @@ EntropyLens is designed with a **zero-knowledge** philosophy:
 
 ---
 
-## ⚡ Performance
+##  Performance
 
 | Metric | Target | Actual |
 |---|---|---|
@@ -280,7 +280,7 @@ EntropyLens is designed with a **zero-knowledge** philosophy:
 
 ---
 
-## 🎨 Design Decisions
+##  Design Decisions
 
 ### Why a thin bar + clickable badge instead of always-visible panel?
 
@@ -316,7 +316,7 @@ Without smoothing, an unseen transition would have probability 0, making entropy
 
 ---
 
-## 🧩 How to Extend
+##  How to Extend
 
 ### Add new known patterns
 
@@ -349,18 +349,18 @@ python scripts/compress_trie.py
 
 ---
 
-## 📜 License
+##  License
 
 MIT. Do whatever you want with it. Just don't blame me if your password is still `password123`.
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Found a bug? Have a better pattern? Open an issue or PR. The model is only as good as the data, and there's always room for improvement.
 
 ---
 
 <p align="center">
-  <em>Built because "password123" is still in the top 10 most common passwords in 2026. We can do better.</em> 🔐
+  <em>Built because "password123" is still in the top 10 most common passwords in 2026. We can do better.</em> 
 </p>
