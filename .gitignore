@@ -1,0 +1,7 @@
+data/rockyou.txt
+data/trigrams.json
+extension/data/trigrams.json.gz
+node_modules/
+*.pyc
+__pycache__/
+.DS_Store

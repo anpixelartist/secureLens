@@ -1,0 +1,45 @@
+.entropy-overlay {
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  gap: 1px;
+  z-index: 9999;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.el-tile {
+  display: inline-block;
+  width: 1ch;
+  height: 100%;
+  transition: background 0.1s ease;
+}
+
+.el-tile--high {
+  background: rgba(220, 53, 69, 0.28);
+}
+
+.el-tile--medium {
+  background: rgba(255, 193, 7, 0.28);
+}
+
+.el-tile--low {
+  background: rgba(25, 135, 84, 0.22);
+}
+
+.el-tooltip {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.92);
+  color: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+  max-width: 280px;
+  z-index: 10000;
+  pointer-events: none;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
